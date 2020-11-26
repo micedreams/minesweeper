@@ -10,17 +10,21 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   String reset = "reset";
-  int numOfMines = 10;
+  int numOfMines = 5;
   int rows = 6;
   int total;
   int count;
   var rng = new Random();
-  var str = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""];
-  var arr = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""];
+  var str = new List(1000);
+  var arr = new List(1000);
 
   @override
   void initState() {
     total = rows * rows;
+    for (var i = 0; i < total; i++) {
+      arr[i] = "";
+      str[i] = "";
+    }
     super.initState();
   }
 
