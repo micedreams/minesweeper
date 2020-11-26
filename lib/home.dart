@@ -15,9 +15,8 @@ class _HomeState extends State<Home> {
   int total;
   int count;
   var rng = new Random();
-  var str = ["", "", "", "", "", "","", "", "", "", "", "","", "", "", "", "", "","", "", "", "", "", "","", "", "", "", "", "","", "", "", "", "", "",];
-  var arr = ["", "", "", "", "", "","", "", "", "", "", "","", "", "", "", "", "","", "", "", "", "", "","", "", "", "", "", "","", "", "", "", "", "",];
-  
+  var str = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""];
+  var arr = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""];
 
   @override
   void initState() {
@@ -27,17 +26,16 @@ class _HomeState extends State<Home> {
 
   int bombs(value, i) {
     if (value >= 0 && value < total && arr[value] == "X") {
-      if( value % rows == 0 && value == (i - (rows - 1)) 
-        || value % rows == 0 && value == (i + (rows + 1))
-        || value % rows == 0 && value == (i + 1) 
-        || value % rows == (rows -1) && value == (i - (rows + 1))
-        || value % rows == (rows -1) && value == (i + (rows - 1))
-        || value % rows == (rows -1) && value == (i - 1)
-        ){
-          count = 0; 
-        }else { 
-          count = 1;
-      } 
+      if (value % rows == 0 && value == (i - (rows - 1)) ||
+          value % rows == 0 && value == (i + (rows + 1)) ||
+          value % rows == 0 && value == (i + 1) ||
+          value % rows == (rows - 1) && value == (i - (rows + 1)) ||
+          value % rows == (rows - 1) && value == (i + (rows - 1)) ||
+          value % rows == (rows - 1) && value == (i - 1)) {
+        count = 0;
+      } else {
+        count = 1;
+      }
     } else {
       count = 0;
     }
@@ -73,10 +71,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(context) {
-    
     for (var i = 0; i < numOfMines; i++) {
       var rando = rng.nextInt(total);
-      //var rando = 18;
       if (arr[rando] == "" && arr[rando] != "X") {
         arr[rando] = "X";
       }
@@ -100,13 +96,17 @@ class _HomeState extends State<Home> {
           return new GridTile(
             child: new Card(
                 color: Colors.blue.shade200,
-                child: Center(
-                  child: RaisedButton(
-                    color: Colors.blue.shade200,
-                    onPressed: () {
+                child: RaisedButton(
+                  color: Colors.blue.shade200,
+                  onPressed: () {
                     show(index);
                     checkstatus(str[index]);
-                    },
+                  },
+                  onLongPress: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed(Home.routeName);
+                  },
+                  child: Center(
                     child: Text(str[index]),
                   ),
                 )),
@@ -116,7 +116,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-
-      
-
