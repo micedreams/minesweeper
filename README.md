@@ -8,6 +8,7 @@ $ flutter pub get
 $ flutter run
 
 press buttons to mine sweep
+
 long press any button to reset board
 
 
