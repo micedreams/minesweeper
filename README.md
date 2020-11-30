@@ -7,6 +7,7 @@ $ flutter pub get
 
 $ flutter run
 
-reset board on long press
+press buttons to mine sweep
+long press any button to reset board
 
 
