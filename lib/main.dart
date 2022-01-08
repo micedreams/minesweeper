@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'home.dart';
+import 'mine_sweeper.dart';
 
 
 void main() async {
@@ -12,10 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Mine Sweeper",
-      home: Home(),
-      routes: {
-        Home.routeName: (ctx) => Home(),
-      },
+      home: MineSweeper(),
     );
   }
 }
