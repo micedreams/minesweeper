@@ -32,9 +32,12 @@ class _MineSweeperState extends State<MineSweeper> {
             onPressed: () => setState(() {
               str = mineSweeper.show(index);
             }),
-            onLongPress: () => setState(() {
-              str = mineSweeper.dispose();
-            }),
+            onLongPress: () {
+              setState(() {
+                str = mineSweeper.dispose();
+              });
+              mineSweeper.assignBombs();
+            },
             child: Center(
               child: Text(str[index]),
             ),

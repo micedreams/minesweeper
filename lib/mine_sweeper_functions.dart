@@ -1,7 +1,7 @@
 import 'dart:math';
 
 class MineSweeperFunctions {
-  int count;
+  late int count;
   var rng = new Random();
   int numOfMines = 5;
   int total = 36;
